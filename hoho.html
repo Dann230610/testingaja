@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>For You><</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #f6e0b5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #ff6b81;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .love-message {
+      font-size: 20px;
+      color: #000000;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container" id="loginBox">
+  <h2>Masukin nama kamu dan password bebas</h2>
+  <input type="text" id="username" placeholder="Nama Kamu">
+  <input type="password" id="password" placeholder="Kata Sandi">
+  <button onclick="login()">Masuk</button>
+</div>
+
+<div class="login-container hidden" id="messageBox">
+  <h2>Hai cintaku, <span id="userDisplay"></span> ❤</h2>
+  <p class="love-message">
+    Bahkan di bumi yang seluas ini, Bagian yang paling menyenangkan adalah bertemu dengan dirimu.
+  </p>
+</div>
+
+<script>
+  function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if (user && pass) {
+      document.getElementById("loginBox").classList.add("hidden");
+      document.getElementById("messageBox").classList.remove("hidden");
+      document.getElementById("userDisplay").textContent = user;
+    } else {
+      alert("Isi nama dan kata sandi dulu ya, cintaku!");
+    }
+  }
+</script>
+
+</body>
+</html>
